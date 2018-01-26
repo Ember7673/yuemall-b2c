@@ -1,20 +1,20 @@
 <template>
-  <div class="customshow-container">
-      <div class="local-film-header">
-            <p>{{title}}</p>
-            <a href="#">查看更多>></a>
-            <div class="header-box"></div>
-          </div>
-          <div class="local-film-body">
-            <ul>
-              <li v-for="(item,i) in customList" :key="i">
-                <img :src="item.img" alt="">
-                <p>{{item.title}}</p>
-                <span>{{item.pTitle}}</span>
-              </li>
-            </ul>
-          </div>
-  </div>
+    <div class="customshow-container">
+            <div class="local-film-header">
+                <p>{{title}}</p>
+                <a href="#">查看更多>></a>
+                <div class="header-box"></div>
+            </div>
+            <div class="local-film-body">
+                <ul>
+                <li v-for="(item,i) in customList" :key="i">
+                    <img :src="item.img" alt="">
+                    <p>{{item.title}}</p>
+                    <span>{{item.pTitle}}</span>
+                </li>
+                </ul>
+            </div>
+    </div>
 </template>
 
 <script>
@@ -46,7 +46,7 @@ ul{
     width: 100%;
     height: 100%;
     position: relative;
-    margin: 0 auto;
+    margin: 100px auto;
     // background-color: pink;
     .local-film-header{
         position: relative;
@@ -64,7 +64,7 @@ ul{
             font-size: 12px;
             position: absolute;
             top: 15px;
-            right: 0;
+            right: 100px;
         }
         .header-box{
             width: 70px;

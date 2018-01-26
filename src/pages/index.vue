@@ -75,8 +75,11 @@
 
       <!-- 旅拍目的地 -->
       <nav>
-        <destination></destination>
+        <desheader :header-title="desHeader.headerTitle" :header-ptitle="desHeader.headerPtitle"></desheader>
+        <destinationlist></destinationlist>
+        <destinationfilm></destinationfilm>
       </nav>
+      
 
       <main>
 
@@ -99,8 +102,13 @@
         </div> -->
 
         <!-- 本地拍 -->
-       
-       <filmshow v-for="(item,i) in film" :msg="item.msg" :filmList="item.filmList" :key="i"></filmshow>
+        <navheader :ishave="true" :header-title="film.msg"></navheader>
+        <filmlist :isthird="true" :film-list="film.filmList"></filmlist>
+
+        <!-- 亚洲拍 -->
+        <navheader :ishave="true" :header-title="film.msg"></navheader>
+        <filmlist :isthird="true" :film-list="film.filmList"></filmlist>
+
 
         <!-- 广告2 -->
         <div class="main-ad2">
@@ -110,7 +118,8 @@
         </div>
 
         <!-- 客片展示 -->
-        <customshow :title="custom.title" :customList="custom.customList"></customshow>
+        <navheader :ishave="true" :header-title="custom.msg"></navheader>
+        <filmlist :isthird="false" :film-list="custom.customList"></filmlist>
 
         <!-- 12项高端定制旅游 -->
         <div class="main-customization-travel w">
@@ -200,13 +209,18 @@
 <script>
 import destination from '../components/destination.vue'
 import filmshow from '../components/filmShow.vue'
-import customshow from '../components/customShow.vue'
+// import customshow from '../components/customShow.vue'
+import desheader from '../components/desHeader.vue'
+import navheader from '../components/navheader.vue'
+import destinationlist from '../components/destinationList.vue'
+import destinationfilm from '../components/destinationfilm.vue'
+import filmlist from '../components/filmList.vue'
+
 export default {
   name: "index",
   data() {
     return {
-      film:[
-        {
+      film:{
           msg: '本地拍',
           filmList: [
             {
@@ -233,150 +247,66 @@ export default {
               img: '/static/img/local-film.jpg',
               title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
             }
-          ]
-        },
-        {
-          msg: '特别推荐',
-          filmList: [
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            }
-          ]
-        },
-         {
-          msg: '全国拍',
-          filmList: [
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            }
-          ]
-        },
-        {
-          msg: '亚洲拍',
-          filmList: [
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            },
-            {
-              img: '/static/img/local-film.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）'
-            }
-          ]
-        },
+          
       ],
-      custom: 
-        {
-          title: '客片展示',
-          customList: [
-            {
-              img: '/static/img/kepianshow.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
-              pTitle: '三亚SANYA'
-            },
-            {
-              img: '/static/img/kepianshow.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
-              pTitle: '三亚SANYA'
-            },
-            {
-              img: '/static/img/kepianshow.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
-              pTitle: '三亚SANYA'
-            },
-            {
-              img: '/static/img/kepianshow.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
-              pTitle: '三亚SANYA'
-            },
-            {
-              img: '/static/img/kepianshow.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
-              pTitle: '三亚SANYA'
-            },
-            {
-              img: '/static/img/kepianshow.jpg',
-              title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
-              pTitle: '三亚SANYA'
-            }
-          ]
-        }
-      
-     
-    }
+    },
+    custom:{
+            msg: '客片展示',
+            customList: [
+              {
+                img: '/static/img/kepianshow.jpg',
+                title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
+                pTitle: '三亚SANYA'
+              },
+              {
+                img: '/static/img/kepianshow.jpg',
+                title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
+                pTitle: '三亚SANYA'
+              },
+              {
+                img: '/static/img/kepianshow.jpg',
+                title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
+                pTitle: '三亚SANYA'
+              },
+              {
+                img: '/static/img/kepianshow.jpg',
+                title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
+                pTitle: '三亚SANYA'
+              },
+              {
+                img: '/static/img/kepianshow.jpg',
+                title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
+                pTitle: '三亚SANYA'
+              },
+              {
+                img: '/static/img/kepianshow.jpg',
+                title: '泰国普吉岛6天4晚私人订制行程（纯旅游）',
+                pTitle: '三亚SANYA'
+              }
+            ]
+      },
+      desHeader: {
+        headerTitle: '全球100+旅拍目的地',
+        headerPtitle: 'GLOBAL TRAWEL DESTINATIONS'
+      }
+  }
   },
   components: {
     destination,
     filmshow,
-    customshow
+    // customshow,
+    navheader,
+    destinationlist,
+    destinationfilm,
+    filmlist,
+    desheader
   }
-};
+}
+
 </script>
 
 <style lang="scss" scoped>
   $color: #19A9E8;
-*{
-  padding: 0;
-  margin: 0;
-}
 a{
   text-decoration: none;
   color: #000;
@@ -632,7 +562,6 @@ nav{
             width: 100px;
             position: relative;
             margin: 0 auto;
-            margin-bottom: 10px;
           }
           p{
             font-size: 12px;

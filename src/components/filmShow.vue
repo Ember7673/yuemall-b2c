@@ -5,14 +5,15 @@
             <a href="#">查看更多>></a>
             <div class="header-box"></div>
           </div>
-          <div class="local-film-body">
+        <div class="local-film-body">
             <ul>
-              <li v-for="(item,i) in filmList" :key="i">
+              <li :class="[ isthird ? 'is-third' : 'is-second' ]" v-for="(item,i) in filmList" :key="i">
                 <img :src="item.img" alt="">
                 <p>{{item.title}}</p>
+                <span>{{item.pTitle}}</span>
               </li>
             </ul>
-          </div>
+        </div>
   </div>
 </template>
 
@@ -21,13 +22,12 @@ export default {
 name: 'filmshow',
 data() {
     return {
-        // msg: 'bendipai'
     }
 },
 components: {
     
 },
-props: ['msg', 'filmList']
+props: ['msg', 'filmList', 'isthird']
 }
 </script>
 
@@ -45,8 +45,7 @@ ul{
     width: 100%;
     height: 100%;
     position: relative;
-    margin: 0 auto;
-    // background-color: pink;
+    margin: 50px auto;
     .local-film-header{
         position: relative;
         margin: 0 80px;
@@ -63,7 +62,7 @@ ul{
             font-size: 12px;
             position: absolute;
             top: 15px;
-            right: 0;
+            right: 100px;
         }
         .header-box{
             width: 70px;
@@ -77,11 +76,8 @@ ul{
     .local-film-body{
         box-sizing: border-box;
         padding: 40px 80px;
-        // display: flex;
-        // justify-content: space-around;
         ul{
             li{
-                width: 32%;
                 display: inline-block;
                 margin-top: 30px;
                 padding: 5px;
@@ -100,6 +96,12 @@ ul{
                 color: #aeaeae;
                 font-size: 12px;
                 }
+            }
+            .is-third{
+                    width: 32%;
+                }
+            .is-second{
+                width: 49%;
             }
         }
     }

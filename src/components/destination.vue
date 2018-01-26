@@ -97,17 +97,9 @@ data() {
 
 <style lang="scss" scoped>
 $color: #19A9E8;
-.w{
-   width: 1200px;
-   margin: 0 auto;
-}
-a{
-  text-decoration: none;
-  color: #000;
-}
 .destination-container{
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 130px;
     .destination{
         box-sizing: border-box;
         .des-header{
@@ -135,74 +127,74 @@ a{
             }
         }
         .des-body{
-        margin-top: 45px;
-        ul{
+          margin-top: 45px;
+          ul{
             list-style: none;
             -webkit-padding-start: 0;
             li{
-            display: flex;
-            // justify-content: flex-start;
-            margin-top: 20px;
-            flex-wrap: wrap;
-                margin-left: 200px;
-            span{
-                color: $color;
-            }
-            .des-list{
+              display: flex;
+              // justify-content: flex-start;
+              margin-top: 20px;
+              flex-wrap: wrap;
+                  margin-left: 200px;
+              span{
+                  color: $color;
+              }
+              .des-list{
                 display: inline;
                 li{
-                margin: 0;
-                a{
-                    border: 1px solid #888;
-                    color: #888;
-                    padding: 3px 6px;
-                    border-radius: 4px;
-                    margin-left: 5px;
-                    margin-bottom: 5px;
-                    font-size: 12px;
+                  margin: 0;
+                  a{
+                      border: 1px solid #888;
+                      color: #888;
+                      padding: 3px 6px;
+                      border-radius: 4px;
+                      margin-left: 5px;
+                      margin-bottom: 5px;
+                      font-size: 12px;
+                  }
                 }
-                }
+              }
             }
-            }
-        }
+          }
         }
         .des-footer{
-        margin-top: 60px;
-        ul{
-            width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            li{
-            width: 150px;
-            height: 205px;
-            display: inline-block;
-            background-color: rgba(0, 0, 0, .5);
-            a{
-                display: block;
-                padding-top: 70px;
-                p{
-                text-align: center;
-                font-size: 20px;
-                font-weight: bold;
-                color: #fff;
-                letter-spacing: 3px;
-                
-                }
-                p:nth-child(2){
-                font-size: 12px;
-                font-weight: normal;
-                letter-spacing: 1px;
-                }
-                .des-box{
-                width: 70px;
-                height: 5px;
-                background-color: #fff;
-                margin: 10px auto;
-                }
+          margin-top: 60px;
+          ul{
+              width: 1000px;
+              margin: 0 auto;
+              display: flex;
+              justify-content: space-around;
+              li{
+              width: 150px;
+              height: 205px;
+              display: inline-block;
+              background-color: rgba(0, 0, 0, .5);
+              a{
+                  display: block;
+                  padding-top: 70px;
+                  p{
+                  text-align: center;
+                  font-size: 20px;
+                  font-weight: bold;
+                  color: #fff;
+                  letter-spacing: 3px;
+                  
+                  }
+                  p:nth-child(2){
+                  font-size: 12px;
+                  font-weight: normal;
+                  letter-spacing: 1px;
+                  }
+                  .des-box{
+                  width: 70px;
+                  height: 5px;
+                  background-color: #fff;
+                  margin: 10px auto;
+                  }
+              }
             }
-            }
-        }
+          }
         }
     }
 }

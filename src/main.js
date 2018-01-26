@@ -8,6 +8,7 @@ Vue.config.productionTip = false
 
 // 默认样式
 import './assets/css/normalize.css'
+import './assets/css/main.css'
 
 // 导入element-ui
 import ElementUi from 'element-ui'
